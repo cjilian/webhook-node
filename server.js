@@ -6,11 +6,9 @@ app.use(express.json());
 
 // This is your "Front Door" (the endpoint)
 app.post('/incoming-data', (req, res) => {
-    console.log("I got a package!");
-    console.log("Inside the package is:", req.body);
-    
-    // You MUST say "Thank you" (Status 200) or the driver will keep knocking
-    res.status(200).send('Package Received!');
+    console.log("Headers:", req.headers); // This shows what KIND of data is coming
+    console.log("Body:", req.body);        // This is the actual data
+    res.status(200).send('Got it!');
 });
 
 // This tells the server to stay awake and listen
